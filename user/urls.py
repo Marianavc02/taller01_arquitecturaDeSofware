@@ -9,7 +9,7 @@ from administration import views as adminViews
 from user import views as userViews  # <- Aquí están tus vistas de login, registrar, etc.
 from user.views import custom_logout
 from . import views
-from administration.views import computers_view, registrar_computadora
+from administration.views import ComputerListView, ComputerCreateView, ComputerUpdateView, ComputerDeleteView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -22,9 +22,10 @@ urlpatterns = [
     path('logout/', custom_logout, name='logout'),
     path('administrar-usuarios/', userViews.admin_users_view, name='admin_users'),
     path('administrar-usuarios/eliminar/<int:user_id>/', userViews.delete_user_view, name='delete_user'),
-    path('computadoras/', computers_view, name='computadoras'),
-    path('computadoras/registrar/', adminViews.registrar_computadora, name='registrar_computadora'),
-    path('computadora/eliminar/<int:computadora_id>/', adminViews.eliminar_computadora, name='eliminar_computadora'),
+    path('computadoras/', ComputerListView.as_view(), name='computadoras'),
+    path('computadoras/registrar/', ComputerCreateView.as_view(), name='registrar_computadora'),
+    path('computadoras/editar/<int:pk>/', ComputerUpdateView.as_view(), name='editar_computadora'),
+    path('computadora/eliminar/<int:pk>/', ComputerDeleteView.as_view(), name='eliminar_computadora'),
     path('update/photos/', adminViews.update_photos, name='update_photos'),
    
     # Manejo de archivos multimedia
