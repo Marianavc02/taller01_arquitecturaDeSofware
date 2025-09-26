@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container align-text-top mt-5">
+    <h1>🖥️ Registered computers</h1>
+    <p>Here are all the computers registered in the system</p>
+    <div id="alertas-container" class="cards-container"></div>
+    <div style="height: 50px;"></div> 
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Serial</th>
+            <th>Model</th>
+            <th>Purchase Date</th>
+            <th>Previous Repairs</th>
+            <th>Actions</th> <!-- Nueva columna -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in computadoras %}
+        <tr>
+            <td>{{ c.serial }}</td>
+            <td>{{ c.model }}</td>
+            <td>{{ c.purchase_date }}</td>
+            <td>{{ c.previous_repairs }}</td>
+            <td>
+                <form action="{% url 'eliminar_computadora' c.id %}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta computadora?');">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="text-center mt-4">
+    <a href="{% url 'registrar_computadora' %}" 
+       class="btn btn-success"
+       title="Ir al formulario de registro de computadora"
+       aria-label="Register computera">
+       Register computer
+    </a>
+</div>
+{% endblock %}

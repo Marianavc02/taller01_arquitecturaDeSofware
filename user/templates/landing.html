@@ -1,0 +1,54 @@
+{% extends 'base_landing.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h1>Welcome to <span class="text-primary">SafeDesk</span></h1>
+    <h2 class="text-secondary">"Smart security for a connected campus"</h2>
+
+    <div class="row mt-4">
+        <!-- Tarjetas de características -->
+        <!-- Card 1 -->
+        <div class="col-md-4">
+            <div class="card feature-card">
+                <img src="{% static 'images/feature1.png' %}" class="card-img-top" alt="Real-time Alerts">
+                <div class="card-body">
+                    <h5 class="card-title">Real-time Alerts</h5>
+                    <p class="card-text">SafeDesk notifies security instantly when an unauthorized attempt to move a computer is detected.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-4">
+            <div class="card feature-card">
+                <img src="{% static 'images/feature2.png' %}" class="card-img-top" alt="IoT Integration">
+                <div class="card-body">
+                    <h5 class="card-title">IoT Integration</h5>
+                    <p class="card-text">Our hardware sensors detect movements and ensure maximum security in computer labs.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-4">
+            <div class="card feature-card">
+                <img src="{% static 'images/feature_3.png' %}" class="card-img-top" alt="AI Facial Recognition">
+                <div class="card-body">
+                    <h5 class="card-title">AI Facial Recognition</h5>
+                    <p class="card-text">A smart camera system identifies intruders and provides detailed security reports.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="height: 50px;"></div>
+
+    <!-- Botón de ingresar o Login-->
+    <div>
+        <h2 class="text-secondary mb-3">What do you want to do?</h2>
+        <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+    </div>
+</div>
+{% endblock %}

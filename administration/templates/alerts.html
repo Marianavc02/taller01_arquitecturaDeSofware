@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .card {
+        background-color: white;
+        padding: 15px;
+        border-radius: 10px;
+        width: 600px;
+    }
+
+    .card-green {
+        box-shadow: 0 4px 6px rgba(35, 198, 30, 0.1);
+        border-color: green ;
+    }
+
+    .card-red {
+        box-shadow: 0 4px 6px rgba(204, 6, 6, 0.1);
+        border-color: red ;
+    }
+
+    .card h3 {
+        margin-top: 0;
+        font-size: 18px;
+        color: rgba(0, 0, 0, 0.85);
+    }
+
+    .card p {
+        margin: 5px 0;
+        color: rgba(0, 0, 0, 0.85);
+    }
+
+    .card p {
+        margin: 5px 0;
+        color: rgba(0, 0, 0, 0.85);
+    }
+
+    .image-pair {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .image-pair div {
+        flex: 1;
+        text-align: center;
+    }
+
+    .image-pair img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+</style>
+
+<div class="container align-text-top mt-5">
+    <h1>🔊 History of alerts</h1>
+    <p>Bellow you can see all the alerts registered in the system...</p>
+    <div id="alertas-container" class="cards-container"></div>
+    <div id="photos-container" class="cards-container"></div>
+    <div style="height: 50px;"></div> 
+</div>
+
+<script>
+    function actualizarAlerta() {
+      fetch("/update/alerts/")
+          .then(response => response.json())
+          .then(alerta => {
+              let container = document.getElementById("alertas-container");
+              container.innerHTML = ""; // Limpiar
+
+              if (alerta && alerta.length > 0) {
+                  let div = document.createElement("div");
+                  let card_type = "";
+                  let mensaje_estado = "";
+
+                  if (alerta[3] != "FALSE" && alerta[3] != "ALERTA ACTIVADA!!") {
+                      card_type = "card-green";
+                      mensaje_estado = "🟢 Alerta inactiva";
+                  } else {
+                      card_type = "card-red";
+                      mensaje_estado = "🔴 Alerta activa";
+                      setInterval(actualizarFoto, 5000);
+                      actualizarFoto();
+                  }
+
+                  div.classList.add("card", card_type);
+                  div.innerHTML = `
+                      <h3>${mensaje_estado}</h3>
+                      <p><strong>Fecha:</strong> ${alerta[0]}</p>
+                      <p><strong>Descripción:</strong> ${alerta[2]}</p>
+                  `;
+                  container.appendChild(div);
+              } else {
+                  container.innerHTML = "<p>No hay alertas registradas.</p>";
+              }
+          })
+          .catch(error => {
+              console.error("Error cargando la última alerta:", error);
+          });
+  }
+
+
+    setInterval(actualizarAlerta, 5000);
+    actualizarAlerta();
+</script>
+
+<script>
+  function actualizarFoto() {
+    fetch("/update/photos/")
+      .then(response => response.json())
+      .then(data => {
+        let container = document.getElementById("photos-container");
+        container.innerHTML = ""; // Limpiar
+
+        if (data.id_archivo || data.id_reconocido) {
+          let div = document.createElement("div");
+
+          let card_type = "";
+          let mensaje_estado = "";
+
+          const urlBase = "https://drive.google.com/thumbnail?id=";
+          const urlArchivo = urlBase + data.id_archivo;
+          const urlReconocido = urlBase + data.id_reconocido;
+
+          if(data.id_reconocido == null){
+            card_type="card-red"
+            mensaje_estado = "🔴 El rostro no coincide con el personal autorizado...";
+          } else {
+            card_type = "card-green";
+            mensaje_estado = "🟢 El rostro coincide con el personal autorizado";
+          }
+
+          div.classList.add("card", card_type);
+
+            let contenido = `
+            <div class="card-content">
+                <div class="image-pair">
+                    <div>
+                        <p><strong>Imagen capturada</strong></p>
+                        <img src="${urlArchivo}" alt="Imagen capturada">
+                    </div>
+            `;
+
+            if (card_type === "card-green") {
+                contenido += `
+                    <div>
+                        <p><strong>Imagen reconocida</strong></p>
+                        <img src="${urlReconocido}" alt="Imagen reconocida">
+                    </div>
+                `;
+            }
+
+            contenido += `
+                </div>
+                <div class="card-body">
+                    <p class="card-title"><strong>${mensaje_estado}</strong></p>
+                </div>
+            </div>
+            `;
+
+            div.innerHTML = contenido;
+            container.appendChild(div);
+
+        } else {
+          container.innerHTML = "<p>No hay imágenes disponibles.</p>";
+        }
+      })
+      .catch(error => {
+        console.error("Error cargando las imágenes:", error);
+      });
+  }
+</script>
+
+{% endblock content %}

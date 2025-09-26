@@ -1,0 +1,37 @@
+
+{% extends 'base_landing.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+<div class="container text-center mt-5">
+    <h1>Welcome to <span class="text-primary">SafeDesk</span></h1>
+    <h2 class="text-secondary">"Smart security for a connected campus"</h2>
+
+    <div class="row mt-4 justify-content-center gap-4">
+        <!-- Card 1 -->
+        <div class="col-md-4">
+            <div class="card feature-card">
+                <img src="{% static 'images/mision.png' %}" alt=" ">
+                <div class="card-body">
+                    <h5 class="card-title">Mision</h5>
+                    <p class="card-text">To protect university technological resources through an intelligent security solution based on IoT, facial recognition, enabling real-time monitoring, immediate response to theft attempts, and efficient device management.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-4">
+            <div class="card feature-card">
+                <img src="{% static 'images/vision.png' %}" alt=" ">
+                <div class="card-body">
+                    <h5 class="card-title">Vision</h5>
+                    <p class="card-text">To become the leading security system for academic environments, recognized for our innovation, reliability, and adaptability to the evolving needs of educational institutions, ensuring safer and more protected learning spaces.</p>
+                </div>
+            </div>
+        </div>
+
+{% endblock content %}

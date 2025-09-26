@@ -1,0 +1,20 @@
+.feature-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: scale(1.05); /* Se agranda más para notar el efecto */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Añade una sombra al pasar el cursor */
+}
+
+.card-img-top {
+    width: 100%;  /* O un valor específico, como 250px */
+    height: auto; /* Ajusta la altura automáticamente */
+    max-height: 200px; /* Opcional: evita que crezca demasiado */
+    object-fit: scale-down; /* Ajusta la imagen sin recortar */
+}
+
+
+

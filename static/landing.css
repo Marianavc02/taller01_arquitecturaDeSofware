@@ -1,0 +1,20 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.feature-card {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    margin-bottom: 30px;
+    transition: transform 0.2s;
+}
+
+.feature-card:hover {
+    transform: scale(1.03);
+}
+
+#about {
+    background-color: #f8f9fa;
+    padding: 40px;
+    border-radius: 10px;
+}

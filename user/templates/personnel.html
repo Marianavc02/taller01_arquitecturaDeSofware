@@ -1,0 +1,28 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block content %}
+
+<div class="container align-text-top mt-5">
+    <h1>🪪 Authorized Personnel</h1>
+    <p class="text-secondary">The following is a list of personnel authorized to relocate university computers without restriction</p>
+    <div style="height: 50px;"></div> 
+</div>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for persona in personal %}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ persona.foto.url }}" class="card-img-top img-fluid" alt="Picture of {{ persona.nombre }}">
+                <div class="card-body">
+                    <h5 class="card-title">Picture of {{ persona.nombre }}</h5>
+                </div>
+            </div>        
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
+

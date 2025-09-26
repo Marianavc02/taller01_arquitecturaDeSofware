@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Sección principal web -->
+<div class="container mt-5">
+    <!-- Bloque de mensajes -->
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <div class="row align-items-center">
+        <!-- Sección de Texto -->
+        <div class="col-md-5 text-start">
+            <h1>Welcome to <span class="text-primary">SafeDesk</span></h1>
+            <p class="text-secondary fs-5">
+                "Smart security for a connected campus"
+            </p>
+
+            <!-- Botón para ver alertas-->
+            <div style="height: 50px;"></div> 
+            <div>
+                <a href="{% url 'alerts' %}" class="btn btn-primary">Check alerts 🔊</a>
+            </div>
+        </div>
+
+        <!-- Imagen ajustada -->
+        <div class="col-md-7 text-end">
+            <img src="{% static 'images/logo_.png' %}" class="img-fluid" alt="image_homep"> 
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
