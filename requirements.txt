@@ -1,2 +1,20 @@
-pathlib
-gspread
+# Framework web
+django>=4.2
+
+# Manejo de imágenes
+pillow>=10.0
+
+# Manejo de datos
+pandas>=2.0
+
+# Variables de entorno
+python-dotenv>=1.0
+
+# Librerías para Google API
+gspread>=6.0
+google-api-python-client>=2.90
+google-auth>=2.22
+google-auth-oauthlib>=1.2
+
+# Manejo de rutas de archivos
+pathlib>=1.0
