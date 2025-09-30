@@ -36,9 +36,9 @@ def personnel(request):
     return render(request, 'personnel.html', {'personal': personal})
 
 
-# Verifica si pertenece al grupo "admin"
 def es_admin(user):
-    return user.groups.filter(name='admin').exists()
+    return user.is_superuser or user.groups.filter(name='admin').exists()
+
 
 def registrar_usuario(request):
     if request.method == 'POST':
@@ -116,7 +116,6 @@ def index(request):
 
 def about(request):
     return render(request, 'about.html')
-
 
 
 
