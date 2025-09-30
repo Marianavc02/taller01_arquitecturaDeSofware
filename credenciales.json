@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "safedesk-457522",
+  "private_key_id": "7e0e28155b295a8f694144454532a851e5398c7f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC89fRhzU80EyNo\nTbDhJ5jCjI95/fHtoo85y61JX0JI5bj0Pm61YDpihg/0ywJVer9Y4jCh3b25hwLf\n0RIQhj78e6ROI/aQxdrqGJJjeJx1VvkbccBAO52Y06IPC0y7sRg295KGgBkNzZZo\n+mLSYq3nBwte1hV5bobgsExan0goSFxM4dQHzDlziA58Gu1UZTcBbsCoBiiDDTYE\nkQDDzyh9VZaybrH9zzKLwrSwKhaCAdCpIsO3fPNDrZr0lbBdqRsNYxHcsRQkRzSA\njKTl2YVphoR+U/nUXV4IMTfpxEGBuxa1Svl+woVq/PH72mMpbu2hx3B7jVYHubeY\nLY5423f/AgMBAAECggEAKAr2/sLDRgXIOxI7qXr6pD+lJ/Toj7MjJtxCnInTQh9s\nUlXooAcEWFyQhQ+ALx0T74H/TE3xJp+1vDhR266XKmoJJ4X3ejZzbahHXUzx2uvT\nXj18wB/iBcDTVtzOJfghaYSNSHNc28/1T8m/p1XCBHM5tZ8obdM+Qd8aTxnx8JcG\n53TpRMsXeZO8ReQjCNRwSl/QhUtRi3KVB8U/bs33QnEheEQyy+leoPSMB36jO/bQ\nGkRT9AbMTWRr5JdvYybXHGovkK568mH5QACXbvBKfCVUi5RhDzqwghdHY+IdkTLV\nXuD6d2nPEAyTXUd3Q7o/CmNDRaMWvSS6roCcTcx4AQKBgQD7r+Nptpp93F7WDYqm\nvsvA3IVLAnpXEDhDIpp16GJPp8imp1LcxmNdu2jCLgex5K59R76qL4pcDZi1fSvT\nhPAb8pZrWbWa4hJCFJEJuBTeKHsQO+YBOwMuEyiVO5zgCc4gYqTYoEgE9ApAbDBA\nu8j/QJK4qpWAsN0i3uWfEMxcEQKBgQDAMuVVMrxrSIC1Apx/j9unH+VstF6RUuc5\nxSpRRVpzE1TUJYxK5FJF4IOWkBgq6FkAfCXm8aEvBf6a+k0uWOcciatluLId0GuW\n9PG8g77gPc3NBFRfwiGQwPt71q3XrLX75RzQMr/8cuY+W0MerszPnxlVJTN56A0Z\nrZIO/k/jDwKBgQC0f3eAIMy65oe8ywlcfAhzz7JoEObb+W3f97j+RiH7LkDgA6+R\nVVV9qyF94LT0ByR8BC/grSd0zOtvfM0pbHUmFdt6MWPkJ60gZs99QN72U+Gtyscw\nqrmlGWhJXe8rXNzOrO+7y3ba1oljmjMguYt0Q0L13KBLIov0rhXO9aUZgQKBgBy4\n/nDHDkVyJlnmtACUPR0ytRSTt/Y7z3ZgsrxGgwfjga/alKa0jF8I+GFN027GHlbm\nNrvWrGHcoXoDofklLBSltkmTWnr+JLYAkQe9II9ebR0QYpOU7XM2g96z7HLoyqGE\nUdQDYZGWkjYLaXJyaQU2H5EL6C91sE+AEu3Or52dAoGAKI8h8MT0zBR2XVyP1I2U\n19x4ZXAGJpGubqnp38L7BlFZigFZqEqR6vtKTvrY2eHSfz/32YVpDKHqS1aCCl0Z\n+vkK70SgclWPnLPl0qLCNe9/T8EzNIxs7Ug6gDvyfJL/PUijCKBEYGUbu9hsl7ya\neQOKiA3GlxLttC3BsuP8nH4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "service1@safedesk-457522.iam.gserviceaccount.com",
+  "client_id": "102481510383808999638",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/service1%40safedesk-457522.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
