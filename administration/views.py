@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from .models import ComputerLog
 
 
 from dotenv import load_dotenv
@@ -121,3 +122,10 @@ class ComputerDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessage
 
     def test_func(self):
         return es_admin(self.request.user)
+    
+class ComputerLogListView(ListView):
+    model = ComputerLog
+    template_name = 'administration/computer_logs.html'
+    context_object_name = 'logs'
+    ordering = ['-timestamp']
+    

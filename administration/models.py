@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.timezone import now
 
 # Create your models here.
 
@@ -15,3 +16,11 @@ class Computer(models.Model):
     model = models.CharField(max_length=100)
     purchase_date = models.DateField()  # 👈 Este debe ser un DateField
     previous_repairs = models.TextField(blank=True, null=True)
+    
+class ComputerLog(models.Model):
+    computer = models.CharField(max_length=100)  # nombre o identificador
+    action = models.CharField(max_length=50)  # "created", "updated", "deleted"
+    timestamp = models.DateTimeField(default=now)
+
+    def __str__(self):
+        return f"{self.computer} - {self.action} @ {self.timestamp}"
